@@ -1,0 +1,20 @@
+{% extends 'home.html' %}
+
+{% block title %}{{title}}{% endblock  %}
+
+{% block content %}
+    <h1>HAS TU ORDEN AQUI</h1>
+<form action="" id="pedido" method="POST">
+    {% csrf_token %}
+    <label for="type_food">cual platillo gustas</label></br>
+    <input type="text" id="type_food" name="type_food" placeholder="Platillo principal" required minlength="2"></br>
+    <label for="number">cantidad</label></br>
+    <input type="number" id="number" name="number" placeholder="cantidad" required></br>
+    <label for="option">S</label>
+    <input type="radio" id="option" name="option"  value="s" required/>
+    <label for="option">L</label>
+    <input type="radio" id="option" name="option" value="l" required/></br>
+    <button type="submit" id="Enviar" class="validar_pedido">Enviar</button>
+   </form>
+   
+{% endblock  %}

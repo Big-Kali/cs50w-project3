@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {% endblock %} PIZZA & SUBS|PINOCCHIO'S</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+    <script type="text/javascript" defer  src="{% static 'javascritp/order.js' %}"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <li>
+      <a href="{% url 'logout'%}">logout</a>
+    </li>
+
+    <header>
+      <!--LOGOTIPO-->
+      <div class="logotipo">
+        <img
+          id="imagen_principal"
+          src="{% static 'imagenes/pinocchio.jpg' %}"
+        />
+        <h1>pizza & subs pinocchio's</h1>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="{% url 'home' %}">HOME</a></li>
+        <li><a href="{% url 'menu' %}">MENU</a></li>
+        <li><a href="{% url 'direction' %}">DIRECTIONS</a></li>
+        <li><a href="{% url 'hours' %}">HOURS</a></li>
+        <li><a href="{% url 'vs' %}">sicilian VS regular</a></li>
+        <li><a href="{% url 'contact' %}">contact us</a></li>
+        <li><a href="{% url 'pedido' %}">Hacer tu pedido</a></li>
+        <li><a href="{% url 'aceptar_pedido' %}">lista de ordenes</a></li>
+      </ul>
+    </nav>
+    <!--
+    <div class="barra">
+      <span class="esquina-izquierda"></span>
+      <span class="relleno-barra"></span>
+      <span class="esquina-derecha"></span>
+    </div>
+    -->
+
+    <h2>WELCOME TO :{{user.username}}</h2>
+    <!--vamos aplicar decoradores ha nuestras urls para que sean privadas ala hora de logearse-->
+
+    {% block content %}
+    <!--CONTENIDO FROM HOME-->
+
+    <p>
+      Pinocchio's Pizza & Subs 74 Winthrop Street Harvard Square 617-876-4897
+      pinocchiospizza1@gmail.com
+    </p>
+
+    <p>
+      Noch's has been in business for over 50 years! We've been feeding Harvard
+      and the surrounding area since 1966! We sell award-winning sicilian-style
+      pizza and mouth-watering steak subs! We have over 750 reviews on Yelp---
+      check it out! ***** Nov. 23rd,2020 UPDATE---We are open from 11:00 am -
+      11:00 pm Monday thru Saturday and from 12 noon - 11:00 pm on Sunday. We
+      now have limited indoor seating available on a first come basis. Per order
+      of the governor all orders must be takeout after 9:30 pm and only 1 person
+      is allowed in the shop at a time. Delivery is still available thru
+      Grubhub, Doordash and Postmates until 11:00 pm every night. Thanks!!!
+    </p>
+    {% endblock %}
+  </body>
+</html>

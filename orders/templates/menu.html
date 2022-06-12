@@ -1,0 +1,146 @@
+{% extends 'home.html' %}
+
+{% block title %} {{title}} {% endblock  %}
+
+
+{% block content %}
+
+<h1>OUR MENU</h1>
+
+
+ <div class="imagenes">
+{% for imagen in imagenes %}
+    {%for list in imageness%}
+ <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{imagen.image.url}} " class="d-block w-100" >
+      </div>
+      
+
+      <div class="carousel-item">
+        <img src="{{list.image.url}}"  class="d-block w-100">
+      </div>
+
+      <div class="carousel-item">
+        <img src="{{list.image.url}}"  class="d-block w-100">
+      </div>
+
+    </div>
+   
+      
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+    {% endfor %}
+    <!--URL IMAGEN-->
+{% endfor %}
+    
+
+ </div>
+
+ {% for lista in carta_menu %}
+
+
+    <table>
+        <tr>
+          
+            <th>REGULAR PIZZA</th>
+        </tr>
+        <tr>
+            <td>{{lista.type_food}}</td>
+            <td>{{lista.price1}}$ small---</td>
+            <td>{{lista.price2}}$ large</td>
+        </tr>
+    </table>
+
+{% endfor %}
+
+
+<h1>TOPPINGS</h1>
+<div id="toping">
+{% for toping in topping %}
+ 
+            
+            <h3>{{toping.toppins}}</h3>
+        
+    
+{% endfor %}
+</div>
+
+
+<h1>SUBS</h1><h2>price</h2>
+{% for lista_subs in subs %}
+        
+    <table>
+        <tr>
+          
+            <th>---------------------</th>
+        </tr>
+        <tr>
+            <td>{{lista_subs.typesubs}}</td>
+            <td>{{lista_subs.pricesubs}}$ small---</td>
+            <td>{{lista_subs.priceSsubs}}$ large</td>
+        </tr>
+    </table>
+{% endfor %}
+
+<h1>PASTA</h1>
+{% for lista in pasta %}
+
+    <table>
+
+        <tr>
+            <th>-----------</th>
+
+        </tr>
+        <tr>
+            <td>{{lista.typepasta}}</td>
+            <td>{{lista.pricepasta}}$-- small --</td>
+        </tr>
+
+    </table>
+
+{% endfor  %}
+
+<h1>SALADS</h1>
+{% for lista in ensaladas %}
+<table>
+
+    <tr>
+        <th>-----------</th>
+
+    </tr>
+    <tr>
+        <td>{{lista.typesalads}}--</td>
+        <td>{{lista.pricesalads}}$--small--</td>
+    </tr>
+
+</table>
+{% endfor %}
+
+<h1>DINNER PLATTERS</h1>
+{% for lista in Dinner  %}
+<table>
+
+    <tr>
+        <th>-----------</th>
+
+    </tr>
+    <tr>
+        <td>{{lista.type_dinner}}---</td>
+        <td>{{lista.price_dinner}}$--just small--</td>
+    </tr>
+
+</table>
+{% endfor %}
+
+
+{% endblock  %}
+

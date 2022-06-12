@@ -1,0 +1,22 @@
+{% extends 'home.html' %}
+
+{% block title %}{{title}}{% endblock  %}
+
+{% block content %}
+    <h6>Estos son tus pedidos</h6>
+    <h4>Deseas cancelar alguna orden</h4>
+
+    <div id="cancelar">
+    {% for list in lista_ordenes %}
+        <ul>
+            <a href="{% url 'delete_pedido' list.id %}" >Delete pedido</a>
+            {{list.id}}
+            {{list.categoria}}
+            {{lista.cantidad}}
+        </ul>
+       
+    {% endfor%}
+    </div>
+
+
+{% endblock  %}
